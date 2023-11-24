@@ -1,0 +1,10 @@
+.App {
+  min-height: 100vh; /** TESTING **/
+  text-align: center;
+  display: grid;
+  grid-template:
+    "top top top"
+    "middle middle middle"
+    "bottom bottom bottom";
+  gap: 10px;
+}
