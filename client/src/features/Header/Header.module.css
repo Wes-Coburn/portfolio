@@ -1,7 +1,7 @@
 .Header {
   grid-area: top;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   background-color: black;
   color: white;
@@ -11,7 +11,7 @@
 }
 
 .Header * {
-  margin: 0;
+  margin: 0 1vh;
 }
 
 .Header h1 {
