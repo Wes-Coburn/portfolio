@@ -1,12 +1,13 @@
 .Header {
   grid-area: top;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   background-color: black;
   color: white;
-  height: 100vh;
+  min-height: 100vh;
   transition: all 4s ease-out;
+  padding: 2vh;
 }
 
 .Header * {
@@ -14,7 +15,7 @@
 }
 
 .Header h1 {
-  font-size: calc(var(--font-size-900) * 2);
+  font-size: calc(var(--font-size-600-plus-2) * 2);
 }
 
 @media (max-width: 500px) {
@@ -22,24 +23,6 @@
     flex-direction: column;
   }
   .Header h1 {
-    font-size: var(--font-size-900);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
-}
-
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
+    font-size: calc(var(--font-size-300-plus-2) * 2);
   }
 }
