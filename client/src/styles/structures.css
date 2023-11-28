@@ -4,6 +4,7 @@
 
 .Grid-mid {
   grid-area: middle;
+  min-height: 100vmin;
 }
 
 .Grid-btm {

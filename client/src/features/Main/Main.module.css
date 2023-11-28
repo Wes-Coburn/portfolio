@@ -1,4 +1,30 @@
-Main {
-  grid-area: middle;
-  min-height: 50vh;
+@media (max-width: 500px) {
+  .Main {
+    flex-direction: column;
+  }
+}
+
+.Skills {
+  font-size: var(--font-size-300-plus-2);
+}
+
+.Skills p {
+  font-size: var(--font-size-400-plus-2);
+}
+
+.Skills ul {
+  list-style-type: none;
+}
+
+.Skills li {
+  display: inline;
+  margin: 1vmin;
+}
+
+.Projects {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2vmin;
+  padding: 5vmin 10vmin;
 }

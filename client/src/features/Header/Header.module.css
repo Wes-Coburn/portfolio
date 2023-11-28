@@ -1,14 +1,29 @@
-Header {
+.Header {
   grid-area: top;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  background-color: black;
+  color: white;
+  height: 100vh;
+  transition: all 4s ease-out;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Header * {
+  margin: 0;
+}
+
+.Header h1 {
+  font-size: calc(var(--font-size-900) * 2);
+}
+
+@media (max-width: 500px) {
+  .Header {
+    flex-direction: column;
+  }
+  .Header h1 {
+    font-size: var(--font-size-900);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -19,7 +19,7 @@ const LINKS: Array<Link> = [
   },
   {
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap',
+    href: 'https://fonts.googleapis.com/css2?family=Oswald&display=swap',
   },
 ];
 

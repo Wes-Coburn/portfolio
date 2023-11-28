@@ -1,8 +1,11 @@
 import { cleanup, render, waitFor } from '@testing-library/react';
-import { afterEach } from 'vitest';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { store } from '../app/store';
+import { beforeEach, afterEach } from 'vitest';
+import setupIntersectionObserverMock from './mocks';
+
+beforeEach(() => {
+  // IntersectionObserver isn't available in test environment
+  setupIntersectionObserverMock();
+});
 
 afterEach(() => {
   cleanup();
@@ -11,11 +14,7 @@ afterEach(() => {
 function customRender(ui: JSX.Element, options = {}) {
   return render(ui, {
     // wrap provider(s) here if needed
-    wrapper: ({ children }) => (
-      <Provider store={store}>
-        <Router>{children}</Router>
-      </Provider>
-    ),
+    wrapper: ({ children }) => children,
     ...options,
   });
 }

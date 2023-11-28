@@ -1,19 +1,21 @@
 /* eslint-disable import/no-absolute-path */
 import favIcon from '/logo.svg';
-import screenshot1 from '/screenshot1.png';
+import drifterClip1 from './drifterClip.mp4';
 
 const ASSETS = {
-  images: {
+  app: {
     logos: {
       favIcon: {
         src: favIcon,
         alt: 'app logo',
       },
     },
-    screenshots: {
-      first: {
-        src: screenshot1,
-        alt: 'screenshot 1',
+  },
+  projects: {
+    drifter: {
+      clip1: {
+        src: drifterClip1,
+        alt: 'Drifter Deckbuilding Game trailer video',
       },
     },
   },

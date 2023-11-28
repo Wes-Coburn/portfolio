@@ -1,58 +1,63 @@
-import { lazy } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import ROUTES, { PATHS } from '../../app/routes';
-import FindNote from '../Notes/FindNote';
+import { Fade } from 'react-awesome-reveal';
+import Showcase from '../Showcase';
+import ASSETS from '../../assets';
 import styles from './Main.module.css';
-import NewNote from '../Notes/NewNote';
-// import { isMobileDomain } from '../../app/responsive';
-
-const Login = lazy(() => import('../Login'));
-const Home = lazy(() => import('../Home'));
-const NotesList = lazy(() => import('../Notes/NotesList'));
-const NotFound = lazy(() => import('../NotFound'));
-
-/** uncomment if subdomain is configured in responsive.ts */
-/*
-const responsive: typeof import('../../app/responsive') = await import(
-  '../../app/responsive'
-);
-responsive.default();
-
-const deviceDomain = () => {
-  if (responsive !== undefined) {
-    if (responsive.isMobileDomain()) {
-      return <p>[Mobile]</p>;
-    }
-    return <p>[Desktop]</p>;
-  }
-  return null;
-};
-*/
 
 export default function Main() {
+  const skills = [
+    'html',
+    'css',
+    'javascript',
+    'typescript',
+    'react',
+    'redux',
+    'react-router',
+  ];
+
   return (
     <main role="main" className={styles.Main}>
-      {/* deviceDomain() */}
-      <Routes>
-        <Route
-          path={PATHS.ROOT()}
-          element={<Navigate to={ROUTES.getLogin()} replace />}
+      {/* Skills */}
+      <div className={styles.Skills}>
+        <Fade delay={800} triggerOnce>
+          <p>He is proficient with...</p>
+        </Fade>
+        <Fade delay={500} cascade damping={0.1} triggerOnce>
+          <ul>
+            {skills.map((skill) => (
+              <li key={`key:${skill}`}>&#x3c;{skill}&#x3e;</li>
+            ))}
+          </ul>
+        </Fade>
+      </div>
+      <div className={styles.Projects}>
+        {/* Projects */}
+        <Showcase
+          src={ASSETS.projects.drifter.clip1.src}
+          title="Drifter Deckbuilding Game"
+          description="A game made with C# and the Unity game engine"
+          linkURL="https://drifterthegame.com/"
         />
-        <Route path={PATHS.login()} element={<Login />} />
-
-        <Route path={PATHS.user()}>
-          <Route
-            path={PATHS.ROOT()}
-            element={<Navigate to={PATHS.home()} replace />}
-          />
-          <Route path={PATHS.home()} element={<Home />} />
-          <Route path={PATHS.allNotes()} element={<NotesList />} />
-          <Route path={PATHS.findNote()} element={<FindNote />} />
-          <Route path={PATHS.newNote()} element={<NewNote />} />
-        </Route>
-
-        <Route path={PATHS.NOT_FOUND()} element={<NotFound />} />
-      </Routes>
+        <Showcase
+          src={ASSETS.projects.drifter.clip1.src}
+          title="Another Project Title"
+          description="Another project description"
+          linkURL="https://google.com/"
+          delay={500}
+        />
+        <Showcase
+          src={ASSETS.projects.drifter.clip1.src}
+          title="Another Project Title"
+          description="Another project description"
+          linkURL="https://google.com/"
+        />
+        <Showcase
+          src={ASSETS.projects.drifter.clip1.src}
+          title="Another Project Title"
+          description="Another project description"
+          linkURL="https://google.com/"
+          delay={500}
+        />
+      </div>
     </main>
   );
 }
