@@ -1,9 +1,13 @@
 .Showcase {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   background-color: black;
-  max-width: 90vmin;
+  width: 90vmin;
+}
+
+.Showcase h2 {
+  color: white;
 }
 
 .Showcase p {
@@ -11,6 +15,24 @@
   margin: 0;
 }
 
+.Showcase:hover {
+  cursor: pointer;
+}
+
+.Showcase:hover p {
+  color: yellow;
+}
+
 .Video {
+  padding-top: 2vh;
   width: 100%;
+}
+
+@media (max-width: 500px) {
+  .Showcase {
+    width: 70vmin;
+  }
+  .Showcase h2 {
+    font-size: var(--font-size-400-plus-2);
+  }
 }

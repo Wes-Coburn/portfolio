@@ -6,7 +6,7 @@ import styles from './Showcase.module.css';
 interface Props {
   src: string;
   title: string;
-  description: string;
+  description: string | Array<string>;
   linkURL: string;
   delay?: number;
 }
@@ -19,22 +19,28 @@ export default function Showcase({
   delay,
 }: Props) {
   return (
-    <Fade delay={delay} fraction={0.3} triggerOnce>
-      <div
-        className={styles.Showcase}
-        onClick={() => {
-          window.open(linkURL, '_blank');
-          return false;
-        }}
-      >
-        <p>{title}</p>
-        <p>{description}</p>
+    <div
+      className={styles.Showcase}
+      onClick={() => {
+        window.open(linkURL, '_blank');
+        return false;
+      }}
+    >
+      <Fade delay={delay} fraction={0.3} triggerOnce>
+        <h2>{title}</h2>
+        {typeof description === 'string' ? (
+          <p>{description}</p>
+        ) : (
+          (description as Array<string>).map((string) => (
+            <p key={`key:${string}`}>{string}</p>
+          ))
+        )}
         <video className={styles.Video} src={src} autoPlay muted loop>
           <track kind="captions" />
           {title}
         </video>
-      </div>
-    </Fade>
+      </Fade>
+    </div>
   );
 }
 

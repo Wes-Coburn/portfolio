@@ -6,8 +6,8 @@
   background-color: black;
   color: white;
   min-height: 100vh;
-  transition: all 4s ease-out;
-  padding: 2vh;
+  transition: all 3s ease-out;
+  padding: 4vh;
 }
 
 .Header * {

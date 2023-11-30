@@ -21,7 +21,7 @@ export default function Main() {
         <Fade delay={800} triggerOnce>
           <p>He is proficient with...</p>
         </Fade>
-        <Fade delay={500} cascade damping={0.1} triggerOnce>
+        <Fade delay={500} cascade damping={0.2} triggerOnce>
           <ul>
             {skills.map((skill) => (
               <li key={`key:${skill}`}>&#x3c;{skill}&#x3e;</li>
@@ -32,30 +32,38 @@ export default function Main() {
       <div className={styles.Projects}>
         {/* Projects */}
         <Showcase
-          src={ASSETS.projects.drifter.clip1.src}
+          src={ASSETS.projects.drifterGame.clip.src}
+          title="Another Project Title"
+          description="Another project description"
+          linkURL="https://google.com/"
+          delay={500}
+        />
+        <Showcase
+          src={ASSETS.projects.drifterGame.clip.src}
+          title="Another Project Title"
+          description="Another project description"
+          linkURL="https://google.com/"
+        />
+        <Showcase
+          src={ASSETS.projects.drifterGame.clip.src}
           title="Drifter Deckbuilding Game"
-          description="A game made with C# and the Unity game engine"
+          description={[
+            'A game made with C# and the Unity game engine',
+            'Next line',
+            'Next line',
+          ]}
           linkURL="https://drifterthegame.com/"
-        />
-        <Showcase
-          src={ASSETS.projects.drifter.clip1.src}
-          title="Another Project Title"
-          description="Another project description"
-          linkURL="https://google.com/"
           delay={500}
         />
         <Showcase
-          src={ASSETS.projects.drifter.clip1.src}
-          title="Another Project Title"
-          description="Another project description"
-          linkURL="https://google.com/"
-        />
-        <Showcase
-          src={ASSETS.projects.drifter.clip1.src}
-          title="Another Project Title"
-          description="Another project description"
-          linkURL="https://google.com/"
-          delay={500}
+          src={ASSETS.projects.drifterGame.clip.src}
+          title="DrifterTheGame.com"
+          description={[
+            'Website for the Drifter Deckbuilding Game',
+            'Next line',
+            'Next line',
+          ]}
+          linkURL="https://drifterthegame.com/"
         />
       </div>
     </main>

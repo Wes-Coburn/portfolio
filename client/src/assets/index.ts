@@ -1,6 +1,7 @@
 /* eslint-disable import/no-absolute-path */
 import favIcon from '/logo.svg';
-import drifterClip1 from './drifterClip.mp4';
+import drifterGameClip from './drifterGameClip.mp4';
+import drifterSiteScreenshot from './drifterSiteScreenshot.png';
 
 const ASSETS = {
   app: {
@@ -12,10 +13,16 @@ const ASSETS = {
     },
   },
   projects: {
-    drifter: {
-      clip1: {
-        src: drifterClip1,
+    drifterGame: {
+      clip: {
+        src: drifterGameClip,
         alt: 'Drifter Deckbuilding Game trailer video',
+      },
+    },
+    drifterSite: {
+      screenshot: {
+        src: drifterSiteScreenshot,
+        alt: 'Drifter Deckbuilding Game website',
       },
     },
   },
