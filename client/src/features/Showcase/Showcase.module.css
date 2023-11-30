@@ -6,33 +6,31 @@
   width: 90vmin;
 }
 
-.Showcase h2 {
+.Showcase-description {
   color: white;
+  padding-bottom: 1vh;
+  border-bottom: 5px solid whitesmoke;
 }
 
-.Showcase p {
-  color: white;
-  margin: 0;
+.Showcase-content video,
+.Showcase-content img {
+  width: 100%;
 }
 
 .Showcase:hover {
   cursor: pointer;
 }
 
-.Showcase:hover p {
+.Showcase:hover * {
   color: yellow;
-}
-
-.Video {
-  padding-top: 2vh;
-  width: 100%;
+  border-color: yellow;
 }
 
 @media (max-width: 500px) {
   .Showcase {
     width: 70vmin;
   }
-  .Showcase h2 {
+  .Showcase-description h2 {
     font-size: var(--font-size-400-plus-2);
   }
 }

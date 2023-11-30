@@ -25,6 +25,6 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 2vmin;
+  gap: 10vmin;
   padding: 5vmin 10vmin;
 }

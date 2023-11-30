@@ -32,14 +32,14 @@ export default function Main() {
       <div className={styles.Projects}>
         {/* Projects */}
         <Showcase
-          src={ASSETS.projects.drifterGame.clip.src}
+          src={ASSETS.projects.drifterSite.screenshot.src}
           title="Another Project Title"
           description="Another project description"
           linkURL="https://google.com/"
           delay={500}
         />
         <Showcase
-          src={ASSETS.projects.drifterGame.clip.src}
+          src={ASSETS.projects.drifterSite.screenshot.src}
           title="Another Project Title"
           description="Another project description"
           linkURL="https://google.com/"
@@ -53,10 +53,11 @@ export default function Main() {
             'Next line',
           ]}
           linkURL="https://drifterthegame.com/"
+          isVideo
           delay={500}
         />
         <Showcase
-          src={ASSETS.projects.drifterGame.clip.src}
+          src={ASSETS.projects.drifterSite.screenshot.src}
           title="DrifterTheGame.com"
           description={[
             'Website for the Drifter Deckbuilding Game',
