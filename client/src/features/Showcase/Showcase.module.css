@@ -17,19 +17,29 @@
   width: 100%;
 }
 
-.Showcase:hover {
-  cursor: pointer;
-}
+@media (min-width: 501px) {
+  .Showcase * {
+    transition: 0.5s;
+  }
 
-.Showcase:hover * {
-  color: yellow;
-  border-color: yellow;
+  .Showcase:hover {
+    cursor: pointer;
+  }
+
+  .Showcase:hover * {
+    color: yellow;
+  }
+
+  .Showcase:hover h2 {
+    font-size: var(--font-size-700-plus-2);
+  }
 }
 
 @media (max-width: 500px) {
   .Showcase {
     width: 70vmin;
   }
+
   .Showcase-description h2 {
     font-size: var(--font-size-400-plus-2);
   }

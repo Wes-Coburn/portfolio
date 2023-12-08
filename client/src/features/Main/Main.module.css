@@ -21,6 +21,15 @@
   margin: 1vmin;
 }
 
+.ProjectsIntro {
+  border-top: 1vmin solid black;
+  padding-top: 2vmin;
+}
+
+.ProjectsIntro p {
+  font-size: var(--font-size-500-plus-2);
+}
+
 .Projects {
   display: flex;
   justify-content: space-around;

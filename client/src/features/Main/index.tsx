@@ -29,20 +29,19 @@ export default function Main() {
           </ul>
         </Fade>
       </div>
+      <div className={styles.ProjectsIntro}>
+        <Fade delay={1000} triggerOnce>
+          <p>Here are some of his projects...</p>
+        </Fade>
+      </div>
       <div className={styles.Projects}>
         {/* Projects */}
         <Showcase
-          src={ASSETS.projects.drifterSite.screenshot.src}
-          title="Another Project Title"
-          description="Another project description"
+          src={ASSETS.projects.noteTaker.screenshot.src}
+          title="Note Taker app"
+          description={['A full-stack MERN app', 'Next line', 'Next line']}
           linkURL="https://google.com/"
           delay={500}
-        />
-        <Showcase
-          src={ASSETS.projects.drifterSite.screenshot.src}
-          title="Another Project Title"
-          description="Another project description"
-          linkURL="https://google.com/"
         />
         <Showcase
           src={ASSETS.projects.drifterGame.clip.src}
@@ -60,7 +59,7 @@ export default function Main() {
           src={ASSETS.projects.drifterSite.screenshot.src}
           title="DrifterTheGame.com"
           description={[
-            'Website for the Drifter Deckbuilding Game',
+            'A static website for the Drifter Deckbuilding Game',
             'Next line',
             'Next line',
           ]}
