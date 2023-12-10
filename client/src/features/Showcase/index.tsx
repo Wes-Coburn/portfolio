@@ -1,5 +1,5 @@
 import { Fade } from 'react-awesome-reveal';
-import { Button } from '@mui/material';
+// import Button from '@mui/material/Button';
 import styles from './Showcase.module.css';
 
 interface Props {
@@ -30,11 +30,14 @@ export default function Showcase({
             <p>{description}</p>
           ) : (
             (description as Array<string>).map((string) => (
-              <p key={`key:${string}`}>{string}</p>
+              <p key={`key:${Math.random().toString(36).slice(2, 7)}`}>
+                {string}
+              </p>
             ))
           )}
         </div>
         <div className={styles.ShowcaseLinks}>
+          {/* 
           <Button
             href={deployLinkURL}
             target="_blank"
@@ -53,6 +56,14 @@ export default function Showcase({
           >
             Code
           </Button>
+          */}
+          <a href={deployLinkURL} target="_blank" rel="noreferrer">
+            Deployment
+          </a>
+          <br />
+          <a href={codeLinkURL} target="_blank" rel="noreferrer">
+            Code
+          </a>
         </div>
         <div className={styles.ShowcaseContent}>
           {isVideo ? (

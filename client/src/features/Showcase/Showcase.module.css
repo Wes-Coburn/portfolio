@@ -20,10 +20,11 @@
   display: flex;
   justify-content: center;
   padding: 2vmin 0;
-  font-size: var(--font-size-300);
+  color: white;
 }
 
 .ShowcaseLinks a {
+  font-size: var(--font-size-500);
   margin: var(--font-size-200);
 }
 
@@ -37,6 +38,10 @@
     color: yellow;
     font-size: var(--font-size-700-r);
   }
+
+  .ShowcaseLinks a:hover {
+    color: yellow;
+  }
 }
 
 @media (max-width: 500px) {
@@ -44,8 +49,8 @@
     width: 70vmin;
   }
 
-  .ShowcaseLinks {
-    font-size: var(--font-size-200);
+  .ShowcaseLinks a {
+    font-size: var(--font-size-400);
   }
 
   .ShowcaseDescription h2 {
