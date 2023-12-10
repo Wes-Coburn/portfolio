@@ -2,6 +2,7 @@
   font-size: 62.5%;
 
   /* Font-Size Responsive */
+  --font-size-100: 0.8rem;
   --font-size-200: 1rem;
   --font-size-300: 1.2rem;
   --font-size-400: 1.6rem; /* 16px, base */
@@ -12,55 +13,56 @@
   --font-size-900: 3.6rem;
 
   /* Viewport Responsive */
-  --margin-ratio: 0.5;
+  --margin-ratio: 0.4;
   --padding-ratio: 0.2;
 
-  --font-size-200-plus-2: calc(var(--font-size-200) + 2vmin);
-  --font-size-300-plus-2: calc(var(--font-size-300) + 2vmin);
-  --font-size-400-plus-2: calc(var(--font-size-400) + 2vmin);
-  --font-size-500-plus-2: calc(var(--font-size-500) + 2vmin);
-  --font-size-600-plus-2: calc(var(--font-size-600) + 2vmin);
-  --font-size-700-plus-2: calc(var(--font-size-700) + 2vmin);
-  --font-size-800-plus-2: calc(var(--font-size-800) + 2vmin);
-  --font-size-900-plus-2: calc(var(--font-size-900) + 2vmin);
+  --font-size-100-r: calc(var(--font-size-100) + 2vmin);
+  --font-size-200-r: calc(var(--font-size-200) + 2vmin);
+  --font-size-300-r: calc(var(--font-size-300) + 2vmin);
+  --font-size-400-r: calc(var(--font-size-400) + 2vmin);
+  --font-size-500-r: calc(var(--font-size-500) + 2vmin);
+  --font-size-600-r: calc(var(--font-size-600) + 2vmin);
+  --font-size-700-r: calc(var(--font-size-700) + 2vmin);
+  --font-size-800-r: calc(var(--font-size-800) + 2vmin);
+  --font-size-900-r: calc(var(--font-size-900) + 2vmin);
 
   --font-family-default: 'Oswald', sans-serif;
 }
 
 h1 {
-  font-size: var(--font-size-800-plus-2);
-  margin: calc(var(--font-size-800-plus-2) * var(--margin-ratio));
-  padding: calc(var(--font-size-800-plus-2) * var(--padding-ratio));
+  font-size: var(--font-size-800-r);
+  margin: calc(var(--font-size-800-r) * var(--margin-ratio));
+  padding: calc(var(--font-size-800-r) * var(--padding-ratio));
 }
 
 h2 {
-  font-size: var(--font-size-600-plus-2);
-  margin: calc(var(--font-size-600-plus-2) * var(--margin-ratio));
-  padding: calc(var(--font-size-600-plus-2) * var(--padding-ratio));
+  font-size: var(--font-size-600-r);
+  margin: calc(var(--font-size-600-r) * var(--margin-ratio));
+  padding: calc(var(--font-size-600-r) * var(--padding-ratio));
 }
 
 h3 {
-  font-size: var(--font-size-500-plus-2);
-  margin: calc(var(--font-size-500-plus-2) * var(--margin-ratio));
-  padding: calc(var(--font-size-500-plus-2) * var(--padding-ratio));
+  font-size: var(--font-size-500-r);
+  margin: calc(var(--font-size-500-r) * var(--margin-ratio));
+  padding: calc(var(--font-size-500-r) * var(--padding-ratio));
 }
 
 h4 {
-  font-size: var(--font-size-400-plus-2);
-  margin: calc(var(--font-size-400-plus-2) * var(--margin-ratio));
-  padding: calc(var(--font-size-400-plus-2) * var(--padding-ratio));
+  font-size: var(--font-size-400-r);
+  margin: calc(var(--font-size-400-r) * var(--margin-ratio));
+  padding: calc(var(--font-size-400-r) * var(--padding-ratio));
 }
 
 h5 {
-  font-size: var(--font-size-300-plus-2);
-  margin: calc(var(--font-size-300-plus-2) * var(--margin-ratio));
-  padding: calc(var(--font-size-300-plus-2) * var(--padding-ratio));
+  font-size: var(--font-size-300-r);
+  margin: calc(var(--font-size-300-r) * var(--margin-ratio));
+  padding: calc(var(--font-size-300-r) * var(--padding-ratio));
 }
 
 h6 {
-  font-size: var(--font-size-200-plus-2);
-  margin: calc(var(--font-size-200-plus-2) * var(--margin-ratio));
-  padding: calc(var(--font-size-200-plus-2) * var(--padding-ratio));
+  font-size: var(--font-size-200-r);
+  margin: calc(var(--font-size-200-r) * var(--margin-ratio));
+  padding: calc(var(--font-size-200-r) * var(--padding-ratio));
 }
 
 p {

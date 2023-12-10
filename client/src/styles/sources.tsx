@@ -19,7 +19,8 @@ const LINKS: Array<Link> = [
   },
   {
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Oswald&display=swap',
+    // font-display: block
+    href: 'https://fonts.googleapis.com/css2?family=Oswald&display=block',
   },
 ];
 

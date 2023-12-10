@@ -1,8 +1,9 @@
 /* eslint-disable import/no-absolute-path */
 import favIcon from '/logo.svg';
-import noteTakerScreenshot from './noteTakerScreenshot.png';
-import drifterGameClip from './drifterGameClip.mp4';
-import drifterSiteScreenshot from './drifterSiteScreenshot.png';
+import mernTemplateScreenshot from './images/mernTemplateScreenshot.png';
+import noteTakerScreenshot from './images/noteTakerScreenshot.png';
+import drifterGameClip from './images/drifterGameClip.mp4';
+import drifterSiteScreenshot from './images/drifterSiteScreenshot.png';
 
 const ASSETS = {
   app: {
@@ -14,6 +15,12 @@ const ASSETS = {
     },
   },
   projects: {
+    mernTemplate: {
+      screenshot: {
+        src: mernTemplateScreenshot,
+        alt: 'MERN App template',
+      },
+    },
     noteTaker: {
       screenshot: {
         src: noteTakerScreenshot,

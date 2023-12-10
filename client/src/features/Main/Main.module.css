@@ -5,15 +5,11 @@
 }
 
 .Skills {
-  font-size: var(--font-size-300-plus-2);
+  font-size: var(--font-size-300-r);
 }
 
 .Skills p {
-  font-size: var(--font-size-400-plus-2);
-}
-
-.Skills ul {
-  list-style-type: none;
+  font-size: var(--font-size-400-r);
 }
 
 .Skills li {
@@ -23,11 +19,11 @@
 
 .ProjectsIntro {
   border-top: 1vmin solid black;
-  padding-top: 2vmin;
+  padding: 5vmin 0;
 }
 
 .ProjectsIntro p {
-  font-size: var(--font-size-500-plus-2);
+  font-size: var(--font-size-500-r);
 }
 
 .Projects {
@@ -35,5 +31,4 @@
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 10vmin;
-  padding: 5vmin 10vmin;
 }

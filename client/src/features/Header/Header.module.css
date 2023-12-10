@@ -7,15 +7,10 @@
   color: white;
   min-height: 100vh;
   transition: all 3s ease-out;
-  padding: 4vh;
-}
-
-.Header * {
-  margin: 0 1vh;
 }
 
 .Header h1 {
-  font-size: calc(var(--font-size-600-plus-2) * 2);
+  font-size: calc(var(--font-size-600-r) * 2);
 }
 
 @media (max-width: 500px) {
@@ -23,6 +18,6 @@
     flex-direction: column;
   }
   .Header h1 {
-    font-size: calc(var(--font-size-300-plus-2) * 2);
+    font-size: calc(var(--font-size-300-r) * 2);
   }
 }

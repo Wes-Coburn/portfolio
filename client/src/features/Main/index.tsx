@@ -37,10 +37,23 @@ export default function Main() {
       <div className={styles.Projects}>
         {/* Projects */}
         <Showcase
+          src={ASSETS.projects.mernTemplate.screenshot.src}
+          title="MERN App Template"
+          description={[
+            'Template for a MERN app',
+            'Includes Redux and React-Router',
+            'Next line',
+          ]}
+          deployLinkURL="https://react-static-wo1g.onrender.com"
+          codeLinkURL="https://github.com/Wes-Coburn/template-MERN-app"
+          delay={500}
+        />
+        <Showcase
           src={ASSETS.projects.noteTaker.screenshot.src}
           title="Note Taker app"
           description={['A full-stack MERN app', 'Next line', 'Next line']}
-          linkURL="https://google.com/"
+          deployLinkURL="https://google.com/"
+          codeLinkURL="https://github.com/Wes-Coburn/note-taker"
           delay={500}
         />
         <Showcase
@@ -51,9 +64,9 @@ export default function Main() {
             'Next line',
             'Next line',
           ]}
-          linkURL="https://drifterthegame.com/"
+          deployLinkURL="https://weslex555.itch.io/drifter-deckbuilding-game/download/ieuEK3_ASTYEBXAEJ7w7_HcubBCo2jCDl6Et2K_F"
+          codeLinkURL="https://github.com/Wes-Coburn/Drifter-Deckbuilding-Game"
           isVideo
-          delay={500}
         />
         <Showcase
           src={ASSETS.projects.drifterSite.screenshot.src}
@@ -63,7 +76,8 @@ export default function Main() {
             'Next line',
             'Next line',
           ]}
-          linkURL="https://drifterthegame.com/"
+          deployLinkURL="https://drifterthegame.com/"
+          codeLinkURL="https://github.com/Wes-Coburn/drifter-website"
         />
       </div>
     </main>

@@ -1,13 +1,13 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { Fade } from 'react-awesome-reveal';
+import { Button } from '@mui/material';
 import styles from './Showcase.module.css';
 
 interface Props {
   src: string;
   title: string;
   description: string | Array<string>;
-  linkURL: string;
+  deployLinkURL: string;
+  codeLinkURL: string;
   isVideo?: boolean;
   delay?: number;
 }
@@ -16,20 +16,15 @@ export default function Showcase({
   src,
   title,
   description,
-  linkURL,
+  deployLinkURL,
+  codeLinkURL,
   isVideo,
   delay,
 }: Props) {
   return (
-    <div
-      className={styles.Showcase}
-      onClick={() => {
-        window.open(linkURL, '_blank');
-        return false;
-      }}
-    >
+    <div className={styles.Showcase}>
       <Fade delay={delay} fraction={0.3} triggerOnce>
-        <div className={styles['Showcase-description']}>
+        <div className={styles.ShowcaseDescription}>
           <h2>{title}</h2>
           {typeof description === 'string' ? (
             <p>{description}</p>
@@ -39,7 +34,27 @@ export default function Showcase({
             ))
           )}
         </div>
-        <div className={styles['Showcase-content']}>
+        <div className={styles.ShowcaseLinks}>
+          <Button
+            href={deployLinkURL}
+            target="_blank"
+            variant="contained"
+            size="large"
+            color="inherit"
+          >
+            Deployment
+          </Button>
+          <Button
+            href={codeLinkURL}
+            target="_blank"
+            variant="contained"
+            size="large"
+            color="inherit"
+          >
+            Code
+          </Button>
+        </div>
+        <div className={styles.ShowcaseContent}>
           {isVideo ? (
             <video src={src} autoPlay muted loop>
               <track kind="captions" />

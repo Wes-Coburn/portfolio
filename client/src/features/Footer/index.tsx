@@ -5,7 +5,6 @@ export default function Footer() {
   return (
     <footer role="contentinfo" className={styles.Footer}>
       <Fade>
-        <p>&copy; 2023 Wesley H.G. Coburn</p>
         <a
           href="https://linkedin.com/in/Wes-Coburn"
           target="_blank"
@@ -20,6 +19,7 @@ export default function Footer() {
         >
           github.com/Wes-Coburn
         </a>
+        <p>&copy; 2023 Wesley H.G. Coburn</p>
       </Fade>
     </footer>
   );

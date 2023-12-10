@@ -44,3 +44,12 @@ ul {
   height: 100%;
   overflow: hidden;
 }
+
+.MuiButtonBase-root,
+.MuiButton-root {
+  font-size: inherit !important;
+}
+
+a:visited {
+  color: inherit;
+}
