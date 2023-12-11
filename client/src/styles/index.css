@@ -50,6 +50,10 @@ ul {
   font-size: inherit !important;
 }
 
+a:link {
+  color: inherit;
+}
+
 a:visited {
   color: inherit;
 }

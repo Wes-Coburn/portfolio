@@ -67,7 +67,7 @@ export default function Showcase({
         </div>
         <div className={styles.ShowcaseContent}>
           {isVideo ? (
-            <video src={src} autoPlay muted loop>
+            <video src={src} autoPlay muted loop controlsList="noFullScreen">
               <track kind="captions" />
               {title}
             </video>
