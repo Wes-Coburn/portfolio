@@ -1,6 +1,7 @@
 import { cleanup, render, waitFor } from '@testing-library/react';
 import { beforeEach, afterEach } from 'vitest';
 import { HelmetProvider } from 'react-helmet-async';
+import { BrowserRouter as Router } from 'react-router-dom';
 import setupIntersectionObserverMock from './mocks';
 
 beforeEach(() => {
@@ -15,7 +16,11 @@ afterEach(() => {
 function customRender(ui: JSX.Element, options = {}) {
   return render(ui, {
     // wrap provider(s) here if needed
-    wrapper: ({ children }) => <HelmetProvider>{children}</HelmetProvider>,
+    wrapper: ({ children }) => (
+      <HelmetProvider>
+        <Router>{children}</Router>
+      </HelmetProvider>
+    ),
     ...options,
   });
 }

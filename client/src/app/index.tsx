@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 import { HelmetProvider } from 'react-helmet-async';
 import Error from '../features/Error';
@@ -5,6 +6,7 @@ import Heading from '../features/Heading';
 import Header from '../features/Header';
 import Footer from '../features/Footer';
 import Main from '../features/Main';
+import NotFound from '../features/NotFound';
 import './App.css';
 
 export function AppContent() {
@@ -12,15 +14,25 @@ export function AppContent() {
     <div className="App">
       <Heading pageURL="" />
       <ErrorBoundary fallback={<Error />}>
-        <div className="Grid-top">
-          <Header />
-        </div>
-        <div className="Grid-mid">
-          <Main />
-        </div>
-        <div className="Grid-btm">
-          <Footer />
-        </div>
+        <Routes>
+          <Route
+            path=""
+            element={
+              <>
+                <div className="Grid-top">
+                  <Header />
+                </div>
+                <div className="Grid-mid">
+                  <Main />
+                </div>
+                <div className="Grid-btm">
+                  <Footer />
+                </div>
+              </>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </ErrorBoundary>
     </div>
   );
@@ -36,7 +48,9 @@ function App() {
 
   return (
     <HelmetProvider>
-      <AppContent />
+      <Router>
+        <AppContent />
+      </Router>
     </HelmetProvider>
   );
 }

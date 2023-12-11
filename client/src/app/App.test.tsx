@@ -1,9 +1,9 @@
 import { render, screen } from '../test/test-utils';
-import App from '.';
+import { AppContent } from '.';
 
 describe('app component', () => {
   test('should render correctly', async () => {
-    render(<App />);
+    render(<AppContent />);
     expect(screen.getByRole('main')).toBeInTheDocument();
   });
 });
