@@ -67,8 +67,15 @@ export default function Showcase({
         </div>
         <div className={styles.ShowcaseContent}>
           {isVideo ? (
-            // controlsList="noFullScreen" // seems to have no effect
-            <video src={src} autoPlay muted loop>
+            <video
+              src={src}
+              autoPlay
+              muted
+              loop
+              controls
+              controlsList="nofullscreen"
+              disablePictureInPicture
+            >
               <track kind="captions" />
               {title}
             </video>
