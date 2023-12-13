@@ -35,12 +35,7 @@
 
 @media (min-width: 501px) {
   .Showcase:hover h2 {
-    color: yellow;
     font-size: var(--font-size-700-r);
-  }
-
-  .ShowcaseLinks a:hover {
-    color: yellow;
   }
 }
 

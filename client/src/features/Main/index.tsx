@@ -52,7 +52,7 @@ export default function Main() {
           src={ASSETS.projects.noteTaker.screenshot.src}
           title="Note Taker app"
           description={['A full-stack MERN app', 'Next line', 'Next line']}
-          deployLinkURL="https://google.com/"
+          deployLinkURL="https://note-taker-1ej3.onrender.com"
           codeLinkURL="https://github.com/Wes-Coburn/note-taker"
           delay={500}
         />

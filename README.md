@@ -10,9 +10,11 @@
 
 ## Technologies
 
-- Node
+- JavaScript
 - TypeScript
+- JQuery
 - React
+- Node
 - Vite
 - Vitest
 - React Testing Library

@@ -37,32 +37,22 @@ export default function Showcase({
           )}
         </div>
         <div className={styles.ShowcaseLinks}>
-          {/* 
-          <Button
+          <a
             href={deployLinkURL}
+            title={`View deployment for ${title}`}
             target="_blank"
-            variant="contained"
-            size="large"
-            color="inherit"
+            rel="noreferrer"
           >
-            Deployment
-          </Button>
-          <Button
-            href={codeLinkURL}
-            target="_blank"
-            variant="contained"
-            size="large"
-            color="inherit"
-          >
-            Code
-          </Button>
-          */}
-          <a href={deployLinkURL} target="_blank" rel="noreferrer">
-            Deployment
+            View Deployment
           </a>
           <br />
-          <a href={codeLinkURL} target="_blank" rel="noreferrer">
-            Code
+          <a
+            href={codeLinkURL}
+            title={`View code for ${title}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            View Code
           </a>
         </div>
         <div className={styles.ShowcaseContent}>
