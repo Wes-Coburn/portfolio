@@ -1,7 +1,7 @@
 .Footer {
   grid-area: bottom;
-  min-height: 15vh;
-  margin-bottom: 5vh;
+  min-height: 15vmin;
+  margin: 5vmin;
 }
 
 .Footer * {

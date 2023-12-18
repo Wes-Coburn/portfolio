@@ -62,9 +62,9 @@ export default function Showcase({
               autoPlay
               muted
               loop
+              playsInline
               disablePictureInPicture
               disableRemotePlayback
-              playsInline
             >
               <track kind="captions" />
               {title}

@@ -6,10 +6,16 @@
 
 .Skills {
   font-size: var(--font-size-300-r);
+  padding: 3vmin;
 }
 
 .Skills p {
   font-size: var(--font-size-400-r);
+  margin-bottom: 3vmin;
+}
+
+.Skills ul {
+  margin: 1vmin;
 }
 
 .Skills li {

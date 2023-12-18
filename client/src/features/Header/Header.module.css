@@ -35,3 +35,13 @@
     font-size: calc(var(--font-size-300-r) * 2);
   }
 }
+
+.noPointerEvents {
+  pointer-events: none;
+  cursor: default;
+}
+
+.allPointerEvents {
+  pointer-events: all;
+  cursor: pointer;
+}

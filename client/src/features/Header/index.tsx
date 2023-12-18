@@ -4,15 +4,20 @@ import styles from './Header.module.css';
 
 export default function Header() {
   const [headerClasses, setHeaderClasses] = useState<string>(styles.Header);
+  const [profileLinkClass, setProfileLinkClass] = useState<string>(
+    styles.noPointerEvents,
+  );
 
   setTimeout(() => {
     setHeaderClasses(`${headerClasses} ${styles.HeaderShrink}`);
+    setProfileLinkClass(styles.allPointerEvents);
   }, 3500);
 
   return (
     <header role="banner" className={headerClasses}>
       <Fade delay={500} cascade damping={1} triggerOnce>
         <a
+          className={profileLinkClass}
           href="https://www.linkedin.com/in/wes-coburn/"
           title="LinkedIn profile"
           target="_blank"

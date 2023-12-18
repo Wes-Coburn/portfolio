@@ -5,13 +5,16 @@ import styles from './Main.module.css';
 
 export default function Main() {
   const skills = [
-    'html',
-    'css',
-    'javascript',
-    'typescript',
-    'react',
-    'redux',
-    'react-router',
+    [
+      'html',
+      'css',
+      'javascript',
+      'typescript',
+      'react',
+      'redux',
+      'react-router',
+    ],
+    ['unit testing', 'responsive design'],
   ];
 
   return (
@@ -22,11 +25,12 @@ export default function Main() {
           <p>He is proficient with...</p>
         </Fade>
         <Fade delay={500} cascade damping={0.2} triggerOnce>
-          <ul>
-            {skills.map((skill) => (
+          {skills.map((skillsList) => {
+            const output = skillsList.map((skill) => (
               <li key={`key:${skill}`}>&#x3c;{skill}&#x3e;</li>
-            ))}
-          </ul>
+            ));
+            return <ul key={`key:${skillsList}`}>{output}</ul>;
+          })}
         </Fade>
       </div>
       <div className={styles.ProjectsIntro}>
@@ -37,33 +41,38 @@ export default function Main() {
       <div className={styles.Projects}>
         {/* Projects */}
         <Showcase
-          src={ASSETS.projects.mernTemplate.screenshot.src}
-          title="MERN App Template"
-          description={[
-            'Template for a MERN app',
-            'Includes Redux and React-Router',
-            'Next line',
-          ]}
-          deployLinkURL="https://react-static-wo1g.onrender.com"
-          codeLinkURL="https://github.com/Wes-Coburn/template-MERN-app"
-          delay={500}
-        />
-        <Showcase
           src={ASSETS.projects.noteTaker.screenshot.src}
-          title="Note Taker app"
-          description={['A full-stack MERN app', 'Next line', 'Next line']}
+          title="Note Taker"
+          description={[
+            'A full-stack MERN app',
+            'Implementation of the MERN template (see next)',
+          ]}
           deployLinkURL="https://note-taker-1ej3.onrender.com"
           codeLinkURL="https://github.com/Wes-Coburn/note-taker"
           delay={500}
         />
         <Showcase
+          src={ASSETS.projects.mernTemplate.screenshot.src}
+          title="MERN Template"
+          description={[
+            'Template for a full-stack MERN app (MongoDB + Express + React + Node)',
+          ]}
+          deployLinkURL="https://react-static-wo1g.onrender.com/"
+          codeLinkURL="https://github.com/Wes-Coburn/template-MERN-app"
+          delay={500}
+        />
+        <Showcase
+          src={ASSETS.projects.jammming.screenshot.src}
+          title="Spotify Client"
+          description={['A React app', 'Implements the Spotify API']}
+          deployLinkURL="https://wes-coburn-jammmer.netlify.app/"
+          codeLinkURL="https://github.com/Wes-Coburn/jammming"
+          delay={500}
+        />
+        <Showcase
           src={ASSETS.projects.drifterGame.clip.src}
           title="Drifter Deckbuilding Game"
-          description={[
-            'A game made with C# and the Unity game engine',
-            'Next line',
-            'Next line',
-          ]}
+          description={['A game made with C# and the Unity game engine']}
           deployLinkURL="https://weslex555.itch.io/drifter-deckbuilding-game/download/ieuEK3_ASTYEBXAEJ7w7_HcubBCo2jCDl6Et2K_F"
           codeLinkURL="https://github.com/Wes-Coburn/Drifter-Deckbuilding-Game"
           isVideo
@@ -71,11 +80,7 @@ export default function Main() {
         <Showcase
           src={ASSETS.projects.drifterSite.screenshot.src}
           title="DrifterTheGame.com"
-          description={[
-            'A static website for the Drifter Deckbuilding Game',
-            'Next line',
-            'Next line',
-          ]}
+          description={['A static website for the Drifter Deckbuilding Game']}
           deployLinkURL="https://drifterthegame.com/"
           codeLinkURL="https://github.com/Wes-Coburn/drifter-website"
         />
