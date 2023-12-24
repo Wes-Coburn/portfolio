@@ -12,7 +12,6 @@
 
 - JavaScript
 - TypeScript
-- JQuery
 - React
 - Node
 - Vite
