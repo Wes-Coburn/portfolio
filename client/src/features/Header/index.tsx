@@ -5,7 +5,7 @@ const fullHeight = 'h-dvh';
 
 export default function Header() {
   const [headerClasses, setHeaderClasses] = useState<string>(
-    `${fullHeight} flex flex-col justify-center items-center bg-black text-white text-center transition-all duration-[3000ms] md:flex-row`,
+    `${fullHeight} flex flex-col justify-center items-center bg-gray-900 text-white text-center transition-all duration-[3000ms] lg:flex-row`,
   );
 
   useEffect(() => {
@@ -28,10 +28,16 @@ export default function Header() {
           target="_blank"
           rel="noreferrer"
         >
-          <h1 className="text-5xl md:text-7xl px-5 py-2">Wesley Coburn</h1>
+          <h1 className="text-5xl px-5 py-2 hover:text-gray-400 md:text-6xl lg:text-5xl xl:text-6xl">
+            Wesley Coburn
+          </h1>
         </a>
-        <h2 className="text-2xl px-5 py-2">is a front-end web developer</h2>
-        <h3 className="text-2xl px-5 py-2">and this is his portfolio</h3>
+        <h2 className="text-xl px-5 py-2 md:text-2xl xl:text-3xl">
+          is a front-end web developer
+        </h2>
+        <h3 className="text-xl px-5 py-2 md:text-2xl xl:text-3xl">
+          and this is his portfolio
+        </h3>
       </Fade>
     </header>
   );

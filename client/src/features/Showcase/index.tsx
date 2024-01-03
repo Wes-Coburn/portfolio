@@ -11,8 +11,7 @@ interface Props {
   delay?: number;
 }
 
-const buttonClasses =
-  'inline-block p-3 m-1 my-3 bg-gray-900 rounded-lg text-white hover:bg-gray-700';
+const buttonClasses = 'p-3 bg-black rounded-lg text-white hover:bg-gray-700';
 
 export default function Showcase({
   src,
@@ -24,23 +23,23 @@ export default function Showcase({
   delay,
 }: Props) {
   return (
-    <div className="max-w-[500px] text-center rounded-md border-solid border-4 border-gray-900 hover:border-gray-400">
+    <div className="max-w-[100%] text-center bg-gray-900 text-white rounded-md border-solid border-4 border-gray-900 hover:border-gray-400 lg:max-w-[45%]">
       <Fade delay={delay} fraction={0.3} triggerOnce>
         <div>
           <h2 className="p-3 text-2xl font-bold">{title}</h2>
-          <div className="p-10 h-16 flex flex-col justify-center">
+          <div className="px-3 min-h-16 flex flex-col justify-center">
             {typeof description === 'string' ? (
               <p>{description}</p>
             ) : (
               (description as Array<string>).map((string) => (
                 <p key={`key:${Math.random().toString(36).slice(2, 7)}`}>
-                  {string}
+                  -&gt; {string}
                 </p>
               ))
             )}
           </div>
         </div>
-        <div>
+        <div className="flex flex-col gap-3 mt-6 justify-center items-center md:flex-row">
           <a
             href={deployLinkURL}
             title={`View deployment for ${title}`}
@@ -60,7 +59,7 @@ export default function Showcase({
             View Code
           </a>
         </div>
-        <div>
+        <div className="max-w-[75%] mx-auto my-6">
           {isVideo ? (
             <video
               src={src}

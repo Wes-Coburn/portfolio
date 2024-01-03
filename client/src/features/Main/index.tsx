@@ -11,22 +11,27 @@ const skills = [
 export default function Main() {
   return (
     <main role="main">
-      <div className="text-center px-2">
+      <div className="text-center px-2 text-gray-600">
         <Fade delay={800} triggerOnce>
-          <p className="py-8 text-2xl">He is proficient with...</p>
+          <p className="pt-12 pb-4 text-2xl">He is proficient with...</p>
         </Fade>
-        <Fade delay={500} cascade damping={0.2} triggerOnce>
-          {skills.map((skillsList) => {
-            const output = skillsList.map((skill) => (
-              <li key={`key:${skill}`} className="inline text-xl pr-2">
-                &#x3c;{skill}&#x3e;
-              </li>
-            ));
-            return <ul key={`key:${skillsList}`}>{output}</ul>;
-          })}
-        </Fade>
+        <div className="max-w-[90%] mx-auto px-1 py-3 border-solid border-4 border-gray-200 md:max-w-[70%] xl:max-w-[50%]">
+          <Fade delay={500} cascade damping={0.2} triggerOnce>
+            {skills.map((skillsList) => {
+              const output = skillsList.map((skill) => (
+                <li
+                  key={`key:${skill}`}
+                  className="inline p-1 leading-loose md:text-xl"
+                >
+                  &#x3c;{skill}&#x3e;
+                </li>
+              ));
+              return <ul key={`key:${skillsList}`}>{output}</ul>;
+            })}
+          </Fade>
+        </div>
         <Fade delay={1000} triggerOnce>
-          <p className="text-2xl pt-12 pb-6">
+          <p className="pt-12 pb-4 text-2xl">
             Here are some of his projects...
           </p>
         </Fade>
@@ -72,7 +77,7 @@ export default function Main() {
           codeLinkURL="https://github.com/Wes-Coburn/drifter-website"
         />
       </div>
-      <div className="text-center text-3xl pt-12 pb-8 font-bold">
+      <div className="pt-12 pb-8 font-bold text-center text-3xl text-gray-600">
         <Fade>
           <p>Games</p>
         </Fade>
