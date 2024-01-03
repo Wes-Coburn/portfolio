@@ -1,10 +1,10 @@
 /* eslint-disable import/no-absolute-path */
 import favIcon from '/logo.svg';
-import noteTakerScreenshot from './images/noteTakerScreenshot.png';
-import mernTemplateScreenshot from './images/mernTemplateScreenshot.png';
-import jammmingScreenshot from './images/jammmerScreenshot.png';
+import noteTakerScreenshot from './images/noteTakerScreenshot2.png';
+import mernTemplateScreenshot from './images/mernTemplateScreenshot2.png';
+import jammmingScreenshot from './images/jammmerScreenshot2.png';
 import drifterGameClip from './images/drifterGameClip.mp4';
-import drifterSiteScreenshot from './images/drifterSiteScreenshot.png';
+import drifterSiteScreenshot from './images/drifterSiteScreenshot2.png';
 
 const ASSETS = {
   app: {

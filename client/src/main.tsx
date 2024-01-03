@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './app';
-import './styles/index.css';
+import './main.css';
 
 if (process.env.NODE_ENV !== 'production') {
   const devTools = await import('./test/devTools');

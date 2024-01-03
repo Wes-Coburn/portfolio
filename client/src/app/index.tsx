@@ -7,7 +7,6 @@ import Header from '../features/Header';
 import Footer from '../features/Footer';
 import Main from '../features/Main';
 import NotFound from '../features/NotFound';
-import './App.css';
 
 export function AppContent() {
   return (
@@ -19,15 +18,9 @@ export function AppContent() {
             path=""
             element={
               <>
-                <div className="Grid-top">
-                  <Header />
-                </div>
-                <div className="Grid-mid">
-                  <Main />
-                </div>
-                <div className="Grid-btm">
-                  <Footer />
-                </div>
+                <Header />
+                <Main />
+                <Footer />
               </>
             }
           />
