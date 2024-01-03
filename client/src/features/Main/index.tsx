@@ -87,7 +87,7 @@ export default function Main() {
           src={ASSETS.projects.drifterGame.clip.src}
           title="Drifter Deckbuilding Game"
           description={['A game made with C# and the Unity game engine']}
-          deployLinkURL="https://weslex555.itch.io/drifter-deckbuilding-game/download/ieuEK3_ASTYEBXAEJ7w7_HcubBCo2jCDl6Et2K_F"
+          deployLinkURL="https://weslex555.itch.io/drifter-deckbuilding-game"
           codeLinkURL="https://github.com/Wes-Coburn/Drifter-Deckbuilding-Game"
           isVideo
         />

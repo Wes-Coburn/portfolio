@@ -28,14 +28,14 @@ export default function Header() {
           target="_blank"
           rel="noreferrer"
         >
-          <h1 className="text-5xl px-5 py-2 hover:text-gray-400 md:text-6xl lg:text-5xl xl:text-6xl">
+          <h1 className="text-5xl px-5 py-2 hover:text-gray-400 md:text-6xl lg:text-5xl xl:px-12 xl:text-6xl">
             Wesley Coburn
           </h1>
         </a>
-        <h2 className="text-xl px-5 py-2 md:text-2xl xl:text-3xl">
+        <h2 className="text-xl px-5 py-2 md:text-2xl xl:text-3xl xl:px-8">
           is a front-end web developer
         </h2>
-        <h3 className="text-xl px-5 py-2 md:text-2xl xl:text-3xl">
+        <h3 className="text-xl px-5 py-2 md:text-2xl xl:text-3xl xl:px-8">
           and this is his portfolio
         </h3>
       </Fade>

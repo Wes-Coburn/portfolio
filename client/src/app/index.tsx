@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 import { HelmetProvider } from 'react-helmet-async';
 import Error from '../features/Error';
@@ -6,7 +11,6 @@ import Heading from '../features/Heading';
 import Header from '../features/Header';
 import Footer from '../features/Footer';
 import Main from '../features/Main';
-import NotFound from '../features/NotFound';
 
 export function AppContent() {
   return (
@@ -24,7 +28,7 @@ export function AppContent() {
               </>
             }
           />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="" replace />} />
         </Routes>
       </ErrorBoundary>
     </div>
