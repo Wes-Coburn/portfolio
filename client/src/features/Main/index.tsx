@@ -75,7 +75,7 @@ const projectShowcase = ({
   deployLinkURL,
   codeLinkURL,
   delay,
-  isVideo
+  isVideo,
 }: Project): JSX.Element => {
   return (
     <Showcase
