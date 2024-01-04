@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="pt-16 mt-32 bg-gray-900 text-gray-400 text-xl text-center md:text-2xl"
+      className="mt-32 bg-gray-900 pt-16 text-center text-xl text-gray-400 md:text-2xl"
     >
       <div className="leading-loose">
         <Fade>

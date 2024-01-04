@@ -23,11 +23,11 @@ export default function Showcase({
   delay,
 }: Props) {
   return (
-    <div className="max-w-[100%] text-center bg-gray-900 text-white rounded-md border-solid border-4 border-gray-900 hover:border-gray-400 lg:max-w-[45%]">
+    <div className="max-w-[100%] rounded-md border-4 border-solid border-gray-900 bg-gray-900 text-center text-white hover:border-gray-400 lg:max-w-[45%]">
       <Fade delay={delay} fraction={0.3} triggerOnce>
         <div>
           <h2 className="p-3 text-2xl font-bold">{title}</h2>
-          <div className="px-3 min-h-16 flex flex-col justify-center">
+          <div className="flex min-h-16 flex-col justify-center px-3">
             {typeof description === 'string' ? (
               <p>{description}</p>
             ) : (
@@ -39,7 +39,7 @@ export default function Showcase({
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-3 mt-6 justify-center items-center md:flex-row">
+        <div className="m-6 flex flex-col items-center justify-center gap-3 md:flex-row">
           <a
             href={deployLinkURL}
             title={`View deployment for ${title}`}
@@ -59,7 +59,7 @@ export default function Showcase({
             View Code
           </a>
         </div>
-        <div className="max-w-[75%] mx-auto my-6">
+        <div className="mx-auto mb-6 max-w-[75%] border-4 border-solid border-white">
           {isVideo ? (
             <video
               src={src}

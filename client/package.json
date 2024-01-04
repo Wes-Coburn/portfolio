@@ -15,7 +15,6 @@
     "format:fix": "npm run format -- --fix",
     "i-ncu": "npm i && ncu && ncu -u && npm i",
     "preformat": "npm run type-check",
-    "postformat:fix": "prettier --write \"./src/**/*.{ts,tsx}\"",
     "prebuild": "npm run format && npm test"
   },
   "dependencies": {
@@ -53,7 +52,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-vitest": "^0.3.12",
     "jsdom": "^23.0.1",
-    "prettier": "3.1.0",
+    "prettier": "^3.1.0",
+    "prettier-plugin-tailwindcss": "^0.5.10",
     "typescript": "^5.3.3",
     "vite": "^5.0.7",
     "vitest": "^1.0.4"
