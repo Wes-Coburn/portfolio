@@ -25,8 +25,9 @@ const webAppProjects: Array<Project> = [
     title: 'Note Taker',
     description: [
       'Lightweight note taking app',
-      'A full-stack MERN app with TailwindCSS',
       'Implementation of the MERN template (see next)',
+      'A full-stack MERN app with TypeScript and TailwindCSS',
+      'Uses Redux and React-Router',
     ],
     deployLinkURL: 'https://note-taker-1ej3.onrender.com',
     codeLinkURL: 'https://github.com/Wes-Coburn/note-taker',
@@ -35,7 +36,11 @@ const webAppProjects: Array<Project> = [
   {
     src: ASSETS.projects.mernTemplate.screenshot.src,
     title: 'MERN Template',
-    description: ['Template for a full-stack MERN app with TailwindCSS'],
+    description: [
+      'Template for a full-stack MERN app with TypeScript and TailwindCSS',
+      'Uses Redux and React-Router',
+      'Fully supported DarkMode (defaults to system)',
+    ],
     deployLinkURL: 'https://react-static-wo1g.onrender.com/',
     codeLinkURL: 'https://github.com/Wes-Coburn/template-MERN-app',
     delay: 500,
@@ -54,7 +59,9 @@ const webAppProjects: Array<Project> = [
   {
     src: ASSETS.projects.drifterSite.screenshot.src,
     title: 'DrifterTheGame.com',
-    description: ['Website for the Drifter Deckbuilding Game'],
+    description: [
+      'Static website for the Drifter Deckbuilding Game (see Games)',
+    ],
     deployLinkURL: 'https://drifterthegame.com/',
     codeLinkURL: 'https://github.com/Wes-Coburn/drifter-website',
   },
@@ -97,11 +104,11 @@ const projectShowcase = ({
 export default function Main() {
   return (
     <main role="main">
-      <div className="px-2 text-center text-gray-600">
+      <div className="px-2 text-center text-gray-700">
         <Fade delay={800} triggerOnce>
           <p className="pb-4 pt-12 text-2xl">He is proficient with...</p>
         </Fade>
-        <div className="mx-auto w-fit border-4 border-solid border-gray-200 p-3">
+        <div className="mx-auto w-fit border-4 border-solid border-gray-200 p-3 text-black">
           <Fade delay={500} cascade damping={0.4} triggerOnce>
             {skills.map((skillsList) => {
               const output = skillsList.map((skill) => (

@@ -14,7 +14,7 @@ import Main from '../features/Main';
 
 export function AppContent() {
   return (
-    <div className="App">
+    <div className="bg-gray-300">
       <Heading pageURL="" />
       <ErrorBoundary fallback={<Error />}>
         <Routes>

@@ -14,13 +14,13 @@ interface Props {
 
 const containerClassName = ccn([
   'max-w-full rounded-md border-4',
-  'border-solid border-gray-900 bg-gray-900',
+  'border-solid border-white bg-gray-900',
   'text-center text-white hover:border-gray-400 lg:max-w-[45%]',
 ]);
 
 const descriptionClassName = ccn([
   'flex min-h-16 flex-col',
-  'items-center justify-center px-6 text-left lg:px-12 xl:px-16',
+  'items-center justify-center px-8 text-left lg:px-12 xl:px-16',
 ]);
 
 const buttonContainerClassName = ccn`m-6 flex flex-col items-center justify-center gap-3 md:flex-row`;
@@ -42,7 +42,7 @@ export default function Showcase({
         <div>
           <h2 className="p-3 text-2xl font-bold">{title}</h2>
           <div className={descriptionClassName}>
-            <ul className="list-disc">
+            <ul className="list-circle">
               {typeof description === 'string' ? (
                 <li>{description}</li>
               ) : (
