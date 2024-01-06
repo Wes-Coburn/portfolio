@@ -36,11 +36,16 @@ export function AppContent() {
 }
 
 function App() {
+  const stopScroll = 'stop-scrolling';
+  const overflowHide = 'overflow-hidden';
   const body = document.getElementsByTagName('body')[0];
-  body.classList.add('stop-scrolling');
+
+  body.classList.add(stopScroll);
+  body.classList.add(overflowHide);
 
   setTimeout(() => {
-    body.classList.remove('stop-scrolling');
+    body.classList.remove(stopScroll);
+    body.classList.remove(overflowHide);
   }, 5000);
 
   return (

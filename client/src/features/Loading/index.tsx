@@ -7,7 +7,3 @@ export default function Loading() {
     </p>
   );
 }
-
-Loading.defaultProps = {
-  classNames: '',
-};

@@ -1,5 +1,6 @@
 import { Fade } from 'react-awesome-reveal';
-// import Button from '@mui/material/Button';
+import ccn from '../../utils/createClassName';
+import gk from '../../utils/generateKey';
 
 interface Props {
   src: string;
@@ -11,7 +12,20 @@ interface Props {
   delay?: number;
 }
 
-const buttonClasses = 'p-3 bg-black rounded-lg text-white hover:bg-gray-700';
+const containerClassName = ccn([
+  'max-w-full rounded-md border-4',
+  'border-solid border-gray-900 bg-gray-900',
+  'text-center text-white hover:border-gray-400 lg:max-w-[45%]',
+]);
+
+const descriptionClassName = ccn([
+  'flex min-h-16 flex-col',
+  'items-center justify-center px-6 text-left lg:px-12 xl:px-16',
+]);
+
+const buttonContainerClassName = ccn`m-6 flex flex-col items-center justify-center gap-3 md:flex-row`;
+const buttonClassName = ccn`rounded-lg bg-black p-3 text-white hover:bg-gray-700`;
+const mediaContainerClassName = ccn`mx-auto mb-6 max-w-[75%] border-4 border-solid border-white`;
 
 export default function Showcase({
   src,
@@ -23,29 +37,29 @@ export default function Showcase({
   delay,
 }: Props) {
   return (
-    <div className="max-w-[100%] rounded-md border-4 border-solid border-gray-900 bg-gray-900 text-center text-white hover:border-gray-400 lg:max-w-[45%]">
+    <div className={containerClassName}>
       <Fade delay={delay} fraction={0.3} triggerOnce>
         <div>
           <h2 className="p-3 text-2xl font-bold">{title}</h2>
-          <div className="flex min-h-16 flex-col justify-center px-3">
-            {typeof description === 'string' ? (
-              <p>{description}</p>
-            ) : (
-              (description as Array<string>).map((string) => (
-                <p key={`key:${Math.random().toString(36).slice(2, 7)}`}>
-                  -&gt; {string}
-                </p>
-              ))
-            )}
+          <div className={descriptionClassName}>
+            <ul className="list-disc">
+              {typeof description === 'string' ? (
+                <li>{description}</li>
+              ) : (
+                (description as Array<string>).map((string) => (
+                  <li key={gk()}>{string}</li>
+                ))
+              )}
+            </ul>
           </div>
         </div>
-        <div className="m-6 flex flex-col items-center justify-center gap-3 md:flex-row">
+        <div className={buttonContainerClassName}>
           <a
             href={deployLinkURL}
             title={`View deployment for ${title}`}
             target="_blank"
             rel="noreferrer"
-            className={buttonClasses}
+            className={buttonClassName}
           >
             View Deployment
           </a>
@@ -54,12 +68,12 @@ export default function Showcase({
             title={`View code for ${title}`}
             target="_blank"
             rel="noreferrer"
-            className={buttonClasses}
+            className={buttonClassName}
           >
             View Code
           </a>
         </div>
-        <div className="mx-auto mb-6 max-w-[75%] border-4 border-solid border-white">
+        <div className={mediaContainerClassName}>
           {isVideo ? (
             <video
               src={src}

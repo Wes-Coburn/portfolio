@@ -1,6 +1,7 @@
 import { Fade } from 'react-awesome-reveal';
 import Showcase from '../Showcase';
 import ASSETS from '../../assets';
+import gk from '../../utils/generateKey';
 
 const skills = [
   ['html', 'css', 'javascript', 'typescript'],
@@ -23,7 +24,8 @@ const webAppProjects: Array<Project> = [
     src: ASSETS.projects.noteTaker.screenshot.src,
     title: 'Note Taker',
     description: [
-      'A full-stack MERN app',
+      'Lightweight note taking app',
+      'A full-stack MERN app with TailwindCSS',
       'Implementation of the MERN template (see next)',
     ],
     deployLinkURL: 'https://note-taker-1ej3.onrender.com',
@@ -33,9 +35,7 @@ const webAppProjects: Array<Project> = [
   {
     src: ASSETS.projects.mernTemplate.screenshot.src,
     title: 'MERN Template',
-    description: [
-      'Template for a full-stack MERN app (MongoDB + Express + React + Node)',
-    ],
+    description: ['Template for a full-stack MERN app with TailwindCSS'],
     deployLinkURL: 'https://react-static-wo1g.onrender.com/',
     codeLinkURL: 'https://github.com/Wes-Coburn/template-MERN-app',
     delay: 500,
@@ -43,7 +43,10 @@ const webAppProjects: Array<Project> = [
   {
     src: ASSETS.projects.jammming.screenshot.src,
     title: 'Spotify Client',
-    description: ['A React app', 'Implements the Spotify API'],
+    description: [
+      'Spotify client',
+      'A React app that implements the Spotify API',
+    ],
     deployLinkURL: 'https://wes-coburn-jammmer.netlify.app/',
     codeLinkURL: 'https://github.com/Wes-Coburn/jammming',
     delay: 500,
@@ -51,7 +54,7 @@ const webAppProjects: Array<Project> = [
   {
     src: ASSETS.projects.drifterSite.screenshot.src,
     title: 'DrifterTheGame.com',
-    description: ['A static website for the Drifter Deckbuilding Game'],
+    description: ['Website for the Drifter Deckbuilding Game'],
     deployLinkURL: 'https://drifterthegame.com/',
     codeLinkURL: 'https://github.com/Wes-Coburn/drifter-website',
   },
@@ -61,7 +64,7 @@ const gameProjects: Array<Project> = [
   {
     src: ASSETS.projects.drifterGame.clip.src,
     title: 'Drifter Deckbuilding Game',
-    description: ['A game made with C# and the Unity game engine'],
+    description: ['Deckbuilding adventure made with Unity and C#'],
     deployLinkURL: 'https://weslex555.itch.io/drifter-deckbuilding-game',
     codeLinkURL: 'https://github.com/Wes-Coburn/Drifter-Deckbuilding-Game',
     isVideo: true,
@@ -79,6 +82,7 @@ const projectShowcase = ({
 }: Project): JSX.Element => {
   return (
     <Showcase
+      key={gk()}
       src={src}
       title={title}
       description={description}
@@ -102,14 +106,14 @@ export default function Main() {
             {skills.map((skillsList) => {
               const output = skillsList.map((skill) => (
                 <li
-                  key={`key:${skill}`}
-                  className="inline p-1 leading-loose md:text-xl"
+                  key={gk()}
+                  className="inline p-1 leading-relaxed md:text-xl md:leading-loose"
                 >
                   &#x3c;{skill}&#x3e;
                 </li>
               ));
               return (
-                <ul key={`key:${skillsList}`} className="mx-auto w-fit">
+                <ul key={gk()} className="mx-auto w-fit">
                   {output}
                 </ul>
               );
@@ -129,7 +133,7 @@ export default function Main() {
         {webAppProjects.map((project) => projectShowcase(project))}
       </div>
       <div className="pb-8 pt-12 text-center text-4xl font-bold text-gray-600">
-        <Fade>
+        <Fade triggerOnce>
           <p>Games</p>
         </Fade>
       </div>

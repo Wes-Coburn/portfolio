@@ -1,20 +1,30 @@
 import { Fade } from 'react-awesome-reveal';
 import { useEffect, useState } from 'react';
+import ccn from '../../utils/createClassName';
 
-const fullHeight = 'min-h-dvh';
+const expandClassName = ccn`min-h-dvh`;
+const shrinkClassName = ccn`min-h-[5dvh]`;
+
+const headerClassName = ccn([
+  expandClassName,
+  'flex flex-col items-center justify-center bg-gray-900 p-8',
+  'text-center text-white transition-all duration-[3000ms] lg:flex-row',
+]);
+
+const h1ClassName = ccn`text-4xl hover:text-gray-400 md:text-5xl xl:text-6xl`;
+const h2ClassName = ccn`py-6 text-xl md:text-2xl lg:px-8 lg:py-0 xl:px-12 xl:text-3xl`;
+const h3ClassName = ccn`text-xl md:text-2xl xl:text-3xl`;
 
 export default function Header() {
-  const [headerClasses, setHeaderClasses] = useState<string>(
-    `${fullHeight} p-6 flex flex-col justify-around items-center bg-gray-900 text-white transition-all duration-[3000ms] lg:flex-row`,
-  );
+  const [headerClasses, setHeaderClasses] = useState<string>(headerClassName);
 
   useEffect(() => {
     setTimeout(() => {
-      setHeaderClasses((headers) => {
-        const headersArr = headers.split(' ');
-        const newHeaders = headersArr.filter((h) => h !== fullHeight);
-        newHeaders.push('min-h-[30dvh]');
-        return newHeaders.join(' ');
+      setHeaderClasses((className) => {
+        const classNameArr = className.split(' ');
+        const newClassName = classNameArr.filter((c) => c !== expandClassName);
+        newClassName.push(shrinkClassName);
+        return newClassName.join(' ');
       });
     }, 3500);
   }, []);
@@ -28,16 +38,10 @@ export default function Header() {
           target="_blank"
           rel="noreferrer"
         >
-          <h1 className="text-5xl hover:text-gray-400 md:text-6xl lg:text-5xl xl:text-7xl">
-            Wesley Coburn
-          </h1>
+          <h1 className={h1ClassName}>Wesley Coburn</h1>
         </a>
-        <h2 className="text-xl md:text-2xl xl:text-3xl">
-          is a front-end web developer
-        </h2>
-        <h3 className="text-xl md:text-2xl xl:text-3xl">
-          and this is his portfolio
-        </h3>
+        <h2 className={h2ClassName}>is a front-end web developer</h2>
+        <h3 className={h3ClassName}>and this is his portfolio</h3>
       </Fade>
     </header>
   );
