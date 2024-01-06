@@ -6,7 +6,9 @@
 
 ## Description
 
--> My front-end web development portfolio, generated from my [Web App Template](https://github.com/Wes-Coburn/template-MERN-app).
+-> My developer portfolio. A React app with TailwindCSS.
+
+-> Generated from my [Web App Template](https://github.com/Wes-Coburn/template-MERN-app).
 
 ## Technologies
 
