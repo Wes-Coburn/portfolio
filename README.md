@@ -6,7 +6,7 @@
 
 ## Description
 
--> My developer portfolio. A React app with TailwindCSS.
+-> My developer portfolio. A React app with TypeScript and TailwindCSS.
 
 -> Generated from my [Web App Template](https://github.com/Wes-Coburn/template-MERN-app).
 
