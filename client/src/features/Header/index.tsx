@@ -8,10 +8,10 @@ const shrinkClassName = ccn`min-h-[5dvh]`;
 const headerClassName = ccn([
   expandClassName,
   'flex flex-col items-center justify-center bg-gray-900 p-8',
-  'text-center text-white transition-all duration-[3000ms] lg:flex-row',
+  'text-center text-gray-300 transition-all duration-[3000ms] lg:flex-row',
 ]);
 
-const h1ClassName = ccn`text-4xl hover:text-gray-400 md:text-5xl xl:text-6xl`;
+const h1ClassName = ccn`text-4xl text-gray-100 hover:text-gray-400 md:text-5xl xl:text-6xl`;
 const h2ClassName = ccn`py-6 text-xl md:text-2xl lg:px-8 lg:py-0 xl:px-12 xl:text-3xl`;
 const h3ClassName = ccn`text-xl md:text-2xl xl:text-3xl`;
 

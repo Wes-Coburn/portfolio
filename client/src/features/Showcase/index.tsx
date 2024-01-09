@@ -15,7 +15,7 @@ interface Props {
 const containerClassName = ccn([
   'max-w-full rounded-md border-4',
   'border-solid border-white bg-gray-900',
-  'text-center text-white hover:border-gray-400 lg:max-w-[45%]',
+  'text-center text-gray-100 hover:border-gray-400 lg:max-w-[45%]',
 ]);
 
 const descriptionClassName = ccn([

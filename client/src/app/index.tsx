@@ -15,7 +15,6 @@ import Main from '../features/Main';
 export function AppContent() {
   return (
     <div className="bg-gray-300">
-      <Heading pageURL="" />
       <ErrorBoundary fallback={<Error />}>
         <Routes>
           <Route
@@ -51,6 +50,7 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
+        <Heading pageURL="" />
         <AppContent />
       </Router>
     </HelmetProvider>

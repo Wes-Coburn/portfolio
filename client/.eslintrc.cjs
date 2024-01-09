@@ -20,7 +20,7 @@ module.exports = {
     '.eslintrc.cjs',
     'vite.config.ts',
     'tailwind.config.js',
-  ], // "out" for jsdoc
+  ],
   rules: {
     'no-constant-binary-expression': 'error',
     'react/react-in-jsx-scope': 'off',

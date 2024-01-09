@@ -106,9 +106,9 @@ export default function Main() {
     <main role="main">
       <div className="px-2 text-center text-gray-700">
         <Fade delay={800} triggerOnce>
-          <p className="pb-4 pt-12 text-2xl">He is proficient with...</p>
+          <p className="pb-6 pt-12 text-2xl">He is proficient with...</p>
         </Fade>
-        <div className="mx-auto w-fit border-4 border-solid border-gray-200 p-3 text-black">
+        <div className="mx-auto w-fit border-4 border-solid border-gray-200 p-3 text-gray-900">
           <Fade delay={500} cascade damping={0.4} triggerOnce>
             {skills.map((skillsList) => {
               const output = skillsList.map((skill) => (
