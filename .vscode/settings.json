@@ -6,6 +6,7 @@
   "editor.formatOnSave": true, // optional
   "editor.formatOnSaveMode": "file", // required to format on save
   "files.autoSave": "onFocusChange", // optional but recommended
+  "css.customData": [".vscode/css_custom_data.json"],
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

@@ -1,12 +1,12 @@
 import { Fade } from 'react-awesome-reveal';
+import { v4 as uuidv4 } from 'uuid';
 import Showcase from '../Showcase';
 import ASSETS from '../../assets';
-import gk from '../../utils/generateKey';
 
 const skills = [
-  ['html', 'css', 'javascript', 'typescript'],
-  ['react', 'redux', 'react-router'],
-  ['unit testing', 'responsive design', 'GIT', 'TailwindCSS'],
+  ['HTML', 'CSS', 'JavaScript', 'TypeScript'],
+  ['React', 'Redux', 'React-Router'],
+  ['Unit Testing', 'Responsive Design', 'GIT', 'TailwindCSS'],
 ];
 
 interface Project {
@@ -25,9 +25,9 @@ const webAppProjects: Array<Project> = [
     title: 'Note Taker',
     description: [
       'Lightweight note taking app',
-      'Implementation of the MERN template (see next)',
-      'A full-stack MERN app with TypeScript and TailwindCSS',
-      'Uses Redux and React-Router',
+      'FRONT-END: TypeScript, TailwindCSS, Redux and React-Router',
+      'BACK-END: JavaScript, Express, MongoDB and Node',
+      'Authentication using JSON Web Tokens',
     ],
     deployLinkURL: 'https://note-taker-1ej3.onrender.com',
     codeLinkURL: 'https://github.com/Wes-Coburn/note-taker',
@@ -37,8 +37,8 @@ const webAppProjects: Array<Project> = [
     src: ASSETS.projects.mernTemplate.screenshot.src,
     title: 'MERN Template',
     description: [
-      'Template for a full-stack MERN app with TypeScript and TailwindCSS',
-      'Uses Redux and React-Router',
+      'Template for a full-stack MERN app',
+      'TypeScript, TailwindCSS, Redux and React-Router',
       'Fully supported DarkMode (defaults to system)',
     ],
     deployLinkURL: 'https://react-static-wo1g.onrender.com/',
@@ -71,7 +71,10 @@ const gameProjects: Array<Project> = [
   {
     src: ASSETS.projects.drifterGame.clip.src,
     title: 'Drifter Deckbuilding Game',
-    description: ['Deckbuilding adventure made with Unity and C#'],
+    description: [
+      'Deckbuilding adventure made with Unity and C#',
+      'Independently conceptualized, designed, and developed',
+    ],
     deployLinkURL: 'https://weslex555.itch.io/drifter-deckbuilding-game',
     codeLinkURL: 'https://github.com/Wes-Coburn/Drifter-Deckbuilding-Game',
     isVideo: true,
@@ -89,7 +92,7 @@ const projectShowcase = ({
 }: Project): JSX.Element => {
   return (
     <Showcase
-      key={gk()}
+      key={uuidv4()}
       src={src}
       title={title}
       description={description}
@@ -113,14 +116,14 @@ export default function Main() {
             {skills.map((skillsList) => {
               const output = skillsList.map((skill) => (
                 <li
-                  key={gk()}
+                  key={uuidv4()}
                   className="inline p-1 leading-relaxed md:text-xl md:leading-loose"
                 >
                   &#x3c;{skill}&#x3e;
                 </li>
               ));
               return (
-                <ul key={gk()} className="mx-auto w-fit">
+                <ul key={uuidv4()} className="mx-auto w-fit">
                   {output}
                 </ul>
               );

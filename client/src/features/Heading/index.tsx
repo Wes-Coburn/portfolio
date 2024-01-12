@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import ASSETS from '../../assets';
 import * as appInfo from '../../../appInfo.json';
 
-type Props = {
+type IProps = {
   pageURL: string;
   pageTitle?: string;
   appDescription?: string;
@@ -18,7 +18,7 @@ export default function Heading({
   themeColor,
   iconUrl,
   iconAlt,
-}: Props) {
+}: IProps) {
   return (
     <Helmet>
       {/* Basic Meta Info */}

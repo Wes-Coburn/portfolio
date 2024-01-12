@@ -1,8 +1,8 @@
 import { Fade } from 'react-awesome-reveal';
+import { v4 as uuidv4 } from 'uuid';
 import ccn from '../../utils/createClassName';
-import gk from '../../utils/generateKey';
 
-interface Props {
+interface IProps {
   src: string;
   title: string;
   description: string | Array<string>;
@@ -35,7 +35,7 @@ export default function Showcase({
   codeLinkURL,
   isVideo,
   delay,
-}: Props) {
+}: IProps) {
   return (
     <div className={containerClassName}>
       <Fade delay={delay} fraction={0.3} triggerOnce>
@@ -47,7 +47,7 @@ export default function Showcase({
                 <li>{description}</li>
               ) : (
                 (description as Array<string>).map((string) => (
-                  <li key={gk()}>{string}</li>
+                  <li key={uuidv4()}>{string}</li>
                 ))
               )}
             </ul>
