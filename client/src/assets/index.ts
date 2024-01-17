@@ -1,5 +1,6 @@
 /* eslint-disable import/no-absolute-path */
 import favIcon from '/logo.svg';
+import portfolioScreenshot from './images/portfolioScreenshot.png';
 import noteTakerScreenshot from './images/noteTakerScreenshot.png';
 import mernTemplateScreenshot from './images/mernTemplateScreenshot.png';
 import jammmingScreenshot from './images/jammmerScreenshot.png';
@@ -16,6 +17,12 @@ const ASSETS = {
     },
   },
   projects: {
+    portfolio: {
+      screenshot: {
+        src: portfolioScreenshot,
+        alt: 'Portfolio site',
+      },
+    },
     noteTaker: {
       screenshot: {
         src: noteTakerScreenshot,

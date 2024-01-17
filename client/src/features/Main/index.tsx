@@ -2,6 +2,7 @@ import { Fade } from 'react-awesome-reveal';
 import { v4 as uuidv4 } from 'uuid';
 import Showcase from '../Showcase';
 import ASSETS from '../../assets';
+import ccn from '../../utils/createClassName';
 
 const skills = [
   ['HTML', 'CSS', 'JavaScript', 'TypeScript'],
@@ -13,7 +14,7 @@ interface Project {
   src: string;
   title: string;
   description: Array<string>;
-  deployLinkURL: string;
+  deployLinkURL?: string;
   codeLinkURL: string;
   delay?: number;
   isVideo?: boolean;
@@ -21,13 +22,23 @@ interface Project {
 
 const webAppProjects: Array<Project> = [
   {
+    src: ASSETS.projects.portfolio.screenshot.src,
+    title: 'Portfolio (this site)',
+    description: [
+      'TypeScript, React, Redux, React-Router and TailwindCSS',
+      'Built with Vite, tested with Vitest and React Testing Library.',
+    ],
+    codeLinkURL: 'https://github.com/Wes-Coburn/portfolio',
+    delay: 500,
+  },
+  {
     src: ASSETS.projects.noteTaker.screenshot.src,
     title: 'Note Taker',
     description: [
-      'Lightweight note taking app',
+      'Full-stack note taking app',
       'FRONT-END: TypeScript, TailwindCSS, Redux and React-Router',
       'BACK-END: JavaScript, Express, MongoDB and Node',
-      'Authentication using JSON Web Tokens',
+      'Authentication with JSON Web Tokens',
     ],
     deployLinkURL: 'https://note-taker-1ej3.onrender.com',
     codeLinkURL: 'https://github.com/Wes-Coburn/note-taker',
@@ -54,16 +65,6 @@ const webAppProjects: Array<Project> = [
     ],
     deployLinkURL: 'https://wes-coburn-jammmer.netlify.app/',
     codeLinkURL: 'https://github.com/Wes-Coburn/jammming',
-    delay: 500,
-  },
-  {
-    src: ASSETS.projects.drifterSite.screenshot.src,
-    title: 'DrifterTheGame.com',
-    description: [
-      'Static website for the Drifter Deckbuilding Game (see Games)',
-    ],
-    deployLinkURL: 'https://drifterthegame.com/',
-    codeLinkURL: 'https://github.com/Wes-Coburn/drifter-website',
   },
 ];
 
@@ -78,6 +79,17 @@ const gameProjects: Array<Project> = [
     deployLinkURL: 'https://weslex555.itch.io/drifter-deckbuilding-game',
     codeLinkURL: 'https://github.com/Wes-Coburn/Drifter-Deckbuilding-Game',
     isVideo: true,
+  },
+  {
+    src: ASSETS.projects.drifterSite.screenshot.src,
+    title: 'DrifterTheGame.com',
+    description: [
+      'Static website for the Drifter Deckbuilding Game',
+      'Built from scratch with the basics - HTML, CSS, and JavaScript',
+      'Uses SCSS for additional styling',
+    ],
+    deployLinkURL: 'https://drifterthegame.com/',
+    codeLinkURL: 'https://github.com/Wes-Coburn/drifter-website',
   },
 ];
 
@@ -96,13 +108,23 @@ const projectShowcase = ({
       src={src}
       title={title}
       description={description}
-      deployLinkURL={deployLinkURL}
+      deployLinkUrl={deployLinkURL}
       codeLinkURL={codeLinkURL}
       delay={delay}
       isVideo={isVideo}
     />
   );
 };
+
+const skillsContainerClassName = ccn([
+  'mx-auto w-fit border-4 border-solid border-gray-200 p-3',
+  'text-gray-900 shadow-2xl shadow-gray-900 duration-200 hover:shadow-yellow-900',
+]);
+
+const skillClassName = ccn([
+  'inline p-1 leading-relaxed transition-all duration-300 ease-out',
+  'hover:text-yellow-500 md:text-xl md:leading-loose',
+]);
 
 export default function Main() {
   return (
@@ -111,14 +133,11 @@ export default function Main() {
         <Fade delay={800} triggerOnce>
           <p className="pb-6 pt-12 text-2xl">He is proficient with...</p>
         </Fade>
-        <div className="mx-auto w-fit border-4 border-solid border-gray-200 p-3 text-gray-900">
+        <div className={skillsContainerClassName}>
           <Fade delay={500} cascade damping={0.4} triggerOnce>
             {skills.map((skillsList) => {
               const output = skillsList.map((skill) => (
-                <li
-                  key={uuidv4()}
-                  className="inline p-1 leading-relaxed md:text-xl md:leading-loose"
-                >
+                <li key={uuidv4()} className={skillClassName}>
                   &#x3c;{skill}&#x3e;
                 </li>
               ));

@@ -6,16 +6,16 @@ interface IProps {
   src: string;
   title: string;
   description: string | Array<string>;
-  deployLinkURL: string;
+  deployLinkUrl?: string;
   codeLinkURL: string;
   isVideo?: boolean;
   delay?: number;
 }
 
 const containerClassName = ccn([
-  'max-w-full rounded-md border-4',
-  'border-solid border-white bg-gray-900',
-  'text-center text-gray-100 hover:border-gray-400 lg:max-w-[45%]',
+  'max-w-full rounded-md border-4 border-solid border-white',
+  'bg-gray-900 shadow-2xl shadow-gray-900 transition-all duration-200 hover:shadow-yellow-900',
+  'text-center text-gray-100 lg:max-w-[45%]',
 ]);
 
 const descriptionClassName = ccn([
@@ -31,7 +31,7 @@ export default function Showcase({
   src,
   title,
   description,
-  deployLinkURL,
+  deployLinkUrl,
   codeLinkURL,
   isVideo,
   delay,
@@ -54,15 +54,19 @@ export default function Showcase({
           </div>
         </div>
         <div className={buttonContainerClassName}>
-          <a
-            href={deployLinkURL}
-            title={`View deployment for ${title}`}
-            target="_blank"
-            rel="noreferrer"
-            className={buttonClassName}
-          >
-            View Deployment
-          </a>
+          {deployLinkUrl !== '' ? (
+            <a
+              href={deployLinkUrl}
+              title={`View deployment for ${title}`}
+              target="_blank"
+              rel="noreferrer"
+              className={buttonClassName}
+            >
+              View Deployment
+            </a>
+          ) : (
+            ''
+          )}
           <a
             href={codeLinkURL}
             title={`View code for ${title}`}
@@ -97,6 +101,7 @@ export default function Showcase({
 }
 
 Showcase.defaultProps = {
+  deployLinkUrl: '',
   isVideo: false,
   delay: 0,
 };
