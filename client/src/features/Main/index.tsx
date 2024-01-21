@@ -1,5 +1,6 @@
 import { Fade } from 'react-awesome-reveal';
 import { v4 as uuidv4 } from 'uuid';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Showcase from '../Showcase';
 import ASSETS from '../../assets';
 import ccn from '../../utils/createClassName';
@@ -14,8 +15,9 @@ interface Project {
   src: string;
   title: string;
   description: Array<string>;
-  deployLinkURL?: string;
-  codeLinkURL: string;
+  deployLinkUrl?: string;
+  codeLinkUrl?: string;
+  viewLinkUrl?: string;
   delay?: number;
   isVideo?: boolean;
 }
@@ -25,10 +27,10 @@ const webAppProjects: Array<Project> = [
     src: ASSETS.projects.portfolio.screenshot.src,
     title: 'Portfolio (this site)',
     description: [
-      'TypeScript, React, Redux, React-Router and TailwindCSS',
+      'TypeScript, React, Redux, React Router and TailwindCSS',
       'Built with Vite, tested with Vitest and React Testing Library.',
     ],
-    codeLinkURL: 'https://github.com/Wes-Coburn/portfolio',
+    codeLinkUrl: 'https://github.com/Wes-Coburn/portfolio',
     delay: 500,
   },
   {
@@ -36,12 +38,12 @@ const webAppProjects: Array<Project> = [
     title: 'Note Taker',
     description: [
       'Full-stack note taking app',
-      'FRONT-END: TypeScript, TailwindCSS, Redux and React-Router',
+      'FRONT-END: TypeScript, TailwindCSS, Redux and React Router',
       'BACK-END: JavaScript, Express, MongoDB and Node',
       'Authentication with JSON Web Tokens',
     ],
-    deployLinkURL: 'https://note-taker-1ej3.onrender.com',
-    codeLinkURL: 'https://github.com/Wes-Coburn/note-taker',
+    deployLinkUrl: 'https://note-taker-1ej3.onrender.com',
+    codeLinkUrl: 'https://github.com/Wes-Coburn/note-taker',
     delay: 500,
   },
   {
@@ -49,11 +51,11 @@ const webAppProjects: Array<Project> = [
     title: 'MERN Template',
     description: [
       'Template for a full-stack MERN app',
-      'TypeScript, TailwindCSS, Redux and React-Router',
+      'TypeScript, TailwindCSS, Redux and React Router',
       'Fully supported DarkMode (defaults to system)',
     ],
-    deployLinkURL: 'https://react-static-wo1g.onrender.com/',
-    codeLinkURL: 'https://github.com/Wes-Coburn/template-MERN-app',
+    deployLinkUrl: 'https://react-static-wo1g.onrender.com/',
+    codeLinkUrl: 'https://github.com/Wes-Coburn/template-MERN-app',
     delay: 500,
   },
   {
@@ -63,8 +65,8 @@ const webAppProjects: Array<Project> = [
       'Spotify client',
       'A React app that implements the Spotify API',
     ],
-    deployLinkURL: 'https://wes-coburn-jammmer.netlify.app/',
-    codeLinkURL: 'https://github.com/Wes-Coburn/jammming',
+    deployLinkUrl: 'https://wes-coburn-jammmer.netlify.app/',
+    codeLinkUrl: 'https://github.com/Wes-Coburn/jammming',
   },
 ];
 
@@ -76,8 +78,8 @@ const gameProjects: Array<Project> = [
       'Deckbuilding adventure made with Unity and C#',
       'Independently conceptualized, designed, and developed',
     ],
-    deployLinkURL: 'https://weslex555.itch.io/drifter-deckbuilding-game',
-    codeLinkURL: 'https://github.com/Wes-Coburn/Drifter-Deckbuilding-Game',
+    deployLinkUrl: 'https://weslex555.itch.io/drifter-deckbuilding-game',
+    codeLinkUrl: 'https://github.com/Wes-Coburn/Drifter-Deckbuilding-Game',
     isVideo: true,
   },
   {
@@ -88,17 +90,29 @@ const gameProjects: Array<Project> = [
       'Built from scratch with the basics - HTML, CSS, and JavaScript',
       'Uses SCSS for additional styling',
     ],
-    deployLinkURL: 'https://drifterthegame.com/',
-    codeLinkURL: 'https://github.com/Wes-Coburn/drifter-website',
+    deployLinkUrl: 'https://drifterthegame.com/',
+    codeLinkUrl: 'https://github.com/Wes-Coburn/drifter-website',
   },
 ];
+
+/*
+const writingProjects: Array<Project> = [
+  {
+    src: '',
+    title: 'Drifter Roleplaying Game',
+    description: ['A TTRPG (tabletop roleplaying game)'],
+    viewLinkUrl: '',
+  },
+];
+*/
 
 const projectShowcase = ({
   src,
   title,
   description,
-  deployLinkURL,
-  codeLinkURL,
+  deployLinkUrl,
+  codeLinkUrl,
+  viewLinkUrl,
   delay,
   isVideo,
 }: Project): JSX.Element => {
@@ -108,8 +122,9 @@ const projectShowcase = ({
       src={src}
       title={title}
       description={description}
-      deployLinkUrl={deployLinkURL}
-      codeLinkURL={codeLinkURL}
+      deployLinkUrl={deployLinkUrl}
+      codeLinkUrl={codeLinkUrl}
+      viewLinkUrl={viewLinkUrl}
       delay={delay}
       isVideo={isVideo}
     />
@@ -118,36 +133,75 @@ const projectShowcase = ({
 
 const skillsContainerClassName = ccn([
   'mx-auto w-fit border-4 border-solid border-gray-200 p-3',
-  'text-gray-900 shadow-2xl shadow-gray-900 duration-200 hover:shadow-yellow-900',
+  'text-gray-900 shadow-2xl shadow-gray-900 duration-200 hover:shadow-orange-700',
 ]);
 
-const skillClassName = ccn([
-  'inline p-1 leading-relaxed transition-all duration-300 ease-out',
-  'hover:text-yellow-500 md:text-xl md:leading-loose',
-]);
+const skillClassName = (isHighlightWord: boolean) => {
+  const classNames = [
+    'inline p-1 leading-relaxed transition-all duration-300 ease-out',
+    'md:text-xl md:leading-loose',
+  ];
+  if (isHighlightWord) classNames.push(ccn('text-orange-700'));
+  return ccn(classNames);
+};
 
 export default function Main() {
+  const [highlightWord, setHighlightWord] = useState([0, 0]);
+
+  const nextHighlightWord = useCallback(() => {
+    setHighlightWord((previous) => {
+      let outerIndex = previous[0];
+      let innerIndex = previous[1];
+      if (innerIndex === skills[outerIndex].length - 1) {
+        innerIndex = 0;
+        if (outerIndex === skills.length - 1) {
+          outerIndex = 0;
+        } else {
+          outerIndex += 1;
+        }
+      } else {
+        innerIndex += 1;
+      }
+      return [outerIndex, innerIndex];
+    });
+    setTimeout(() => nextHighlightWord(), 1200);
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      nextHighlightWord();
+    }, 5000);
+  }, [nextHighlightWord]);
+
   return (
     <main role="main">
-      <div className="px-2 text-center text-gray-700">
+      <div className="px-2 text-center text-gray-800">
         <Fade delay={800} triggerOnce>
           <p className="pb-6 pt-12 text-2xl">He is proficient with...</p>
         </Fade>
         <div className={skillsContainerClassName}>
-          <Fade delay={500} cascade damping={0.4} triggerOnce>
-            {skills.map((skillsList) => {
-              const output = skillsList.map((skill) => (
-                <li key={uuidv4()} className={skillClassName}>
-                  &#x3c;{skill}&#x3e;
-                </li>
-              ));
-              return (
-                <ul key={uuidv4()} className="mx-auto w-fit">
-                  {output}
-                </ul>
-              );
-            })}
-          </Fade>
+          {useMemo(
+            () =>
+              skills.map((skillsList, outerIndex) => {
+                const output = skillsList.map((skill, innerIndex) => (
+                  <li
+                    key={uuidv4()}
+                    className={skillClassName(
+                      highlightWord[0] === outerIndex &&
+                        highlightWord[1] === innerIndex,
+                    )}
+                  >
+                    &#x3c;{skill}&#x3e;
+                  </li>
+                ));
+                return (
+                  <ul key={uuidv4()} className="mx-auto w-fit">
+                    {output}
+                  </ul>
+                );
+              }),
+            [highlightWord],
+          )}
         </div>
         <Fade delay={1000} triggerOnce>
           <p className="pb-6 pt-12 text-2xl">
@@ -159,7 +213,10 @@ export default function Main() {
         </Fade>
       </div>
       <div className="flex flex-wrap justify-center gap-12 px-12">
-        {webAppProjects.map((project) => projectShowcase(project))}
+        {useMemo(
+          () => webAppProjects.map((project) => projectShowcase(project)),
+          [],
+        )}
       </div>
       <div className="pb-8 pt-12 text-center text-4xl font-bold text-gray-600">
         <Fade triggerOnce>
@@ -167,7 +224,10 @@ export default function Main() {
         </Fade>
       </div>
       <div className="flex flex-wrap justify-center gap-12 px-12">
-        {gameProjects.map((project) => projectShowcase(project))}
+        {useMemo(
+          () => gameProjects.map((project) => projectShowcase(project)),
+          [],
+        )}
       </div>
     </main>
   );

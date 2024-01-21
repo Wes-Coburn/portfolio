@@ -1,5 +1,6 @@
 import { Fade } from 'react-awesome-reveal';
 import { v4 as uuidv4 } from 'uuid';
+import { useMemo } from 'react';
 import ccn from '../../utils/createClassName';
 
 interface IProps {
@@ -7,7 +8,8 @@ interface IProps {
   title: string;
   description: string | Array<string>;
   deployLinkUrl?: string;
-  codeLinkURL: string;
+  codeLinkUrl?: string;
+  viewLinkUrl?: string;
   isVideo?: boolean;
   delay?: number;
 }
@@ -27,12 +29,34 @@ const buttonContainerClassName = ccn`m-6 flex flex-col items-center justify-cent
 const buttonClassName = ccn`rounded-lg bg-black p-3 text-white hover:bg-gray-700`;
 const mediaContainerClassName = ccn`mx-auto mb-6 max-w-[75%] border-4 border-solid border-white`;
 
+const renderIfExists = (
+  linkUrl: string | undefined,
+  text: string,
+  title: string,
+) => {
+  if (linkUrl) {
+    return (
+      <a
+        href={linkUrl}
+        title={title}
+        target="_blank"
+        rel="noreferrer"
+        className={buttonClassName}
+      >
+        {text}
+      </a>
+    );
+  }
+  return '';
+};
+
 export default function Showcase({
   src,
   title,
   description,
   deployLinkUrl,
-  codeLinkURL,
+  codeLinkUrl,
+  viewLinkUrl,
   isVideo,
   delay,
 }: IProps) {
@@ -43,39 +67,26 @@ export default function Showcase({
           <h2 className="p-3 text-2xl font-bold">{title}</h2>
           <div className={descriptionClassName}>
             <ul className="list-circle">
-              {typeof description === 'string' ? (
-                <li>{description}</li>
-              ) : (
-                (description as Array<string>).map((string) => (
-                  <li key={uuidv4()}>{string}</li>
-                ))
-              )}
+              {useMemo(() => {
+                return typeof description === 'string' ? (
+                  <li>{description}</li>
+                ) : (
+                  (description as Array<string>).map((string) => (
+                    <li key={uuidv4()}>{string}</li>
+                  ))
+                );
+              }, [description])}
             </ul>
           </div>
         </div>
         <div className={buttonContainerClassName}>
-          {deployLinkUrl !== '' ? (
-            <a
-              href={deployLinkUrl}
-              title={`View deployment for ${title}`}
-              target="_blank"
-              rel="noreferrer"
-              className={buttonClassName}
-            >
-              View Deployment
-            </a>
-          ) : (
-            ''
+          {renderIfExists(
+            deployLinkUrl,
+            'View Deployment',
+            `View deployment for ${title}`,
           )}
-          <a
-            href={codeLinkURL}
-            title={`View code for ${title}`}
-            target="_blank"
-            rel="noreferrer"
-            className={buttonClassName}
-          >
-            View Code
-          </a>
+          {renderIfExists(codeLinkUrl, 'View Code', `View code for ${title}`)}
+          {renderIfExists(viewLinkUrl, 'View Project', `View ${title}`)}
         </div>
         <div className={mediaContainerClassName}>
           {isVideo ? (
@@ -102,6 +113,8 @@ export default function Showcase({
 
 Showcase.defaultProps = {
   deployLinkUrl: '',
+  codeLinkUrl: '',
+  viewLinkUrl: '',
   isVideo: false,
   delay: 0,
 };
