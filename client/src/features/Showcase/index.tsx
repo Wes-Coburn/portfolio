@@ -16,7 +16,7 @@ interface IProps {
 
 const containerClassName = ccn([
   'max-w-full rounded-md border-4 border-solid border-white',
-  'bg-gray-900 shadow-2xl shadow-gray-900 transition-all duration-200 hover:shadow-yellow-900',
+  'bg-gray-900 shadow-2xl shadow-gray-900 transition-all duration-200 hover:shadow-orange-700',
   'text-center text-gray-100 lg:max-w-[45%]',
 ]);
 
