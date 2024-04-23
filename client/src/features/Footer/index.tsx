@@ -24,6 +24,13 @@ export default function Footer() {
           >
             github.com/Wes-Coburn
           </a>
+          <a
+            href="mailto:wgcoburn@outlook.com"
+            className="text-gray-200 hover:text-gray-400"
+          >
+            wgcoburn@outlook.com
+          </a>
+
           <p className="p-12">&copy; 2023 Wesley H.G. Coburn</p>
         </Fade>
       </div>

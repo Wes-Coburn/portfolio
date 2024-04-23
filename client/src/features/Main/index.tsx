@@ -7,8 +7,8 @@ import ccn from '../../utils/createClassName';
 
 const skills = [
   ['HTML', 'CSS', 'JavaScript', 'TypeScript'],
-  ['React', 'Redux', 'React-Router'],
-  ['Unit Testing', 'Responsive Design', 'GIT', 'TailwindCSS'],
+  ['React.js', 'Redux', 'React-Router', 'TailwindCSS'],
+  ['Unit Testing', 'Responsive Design', 'GIT'],
 ];
 
 interface Project {
@@ -191,7 +191,10 @@ export default function Main() {
                         highlightWord[1] === innerIndex,
                     )}
                   >
-                    &#x3c;{skill}&#x3e;
+                    {skill}{' '}
+                    {innerIndex < skillsList.length - 1 && (
+                      <span className="text-gray-800">&#47;</span>
+                    )}
                   </li>
                 ));
                 return (
