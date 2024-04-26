@@ -33,7 +33,7 @@ export default function Header() {
     <header role="banner" className={headerClasses}>
       <Fade delay={500} cascade damping={1} triggerOnce>
         <a
-          href="https://www.linkedin.com/in/wes-coburn/"
+          href="https://www.linkedin.com/in/wescoburn/"
           title="LinkedIn profile"
           target="_blank"
           rel="noreferrer"

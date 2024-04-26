@@ -22,7 +22,7 @@ export default function Footer() {
             rel="noreferrer"
             className="text-gray-200 hover:text-gray-400"
           >
-            github.com/Wes-Coburn
+            github.com/wescoburn
           </a>
           <a
             href="mailto:wgcoburn@outlook.com"
